@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try It Yourself - HTML, CSS, JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Try HTML, CSS, JavaScript</h1>
+    <p>Write your HTML, CSS, and JavaScript code below and click "Run" to see the result:</p>
+
+    <textarea id="htmlCode" placeholder="Enter HTML code here..."></textarea>
+    <textarea id="cssCode" placeholder="Enter CSS code here..."></textarea>
+    <textarea id="jsCode" placeholder="Enter JavaScript code here..."></textarea>
+
+    <button onclick="runCode()">Run</button>
+
+    <h2>Output:</h2>
+    <iframe id="output" sandbox="allow-scripts allow-same-origin"></iframe>
+
+    <script>
+        function runCode() {
+            var html = document.getElementById('htmlCode').value;
+            var css = "<style>" + document.getElementById('cssCode').value + "</style>";
+            var js = "<script>" + document.getElementById('jsCode').value + "<\/script>";
+
+            var code = html + css + js;
+            var outputFrame = document.getElementById('output');
+            var doc = outputFrame.contentDocument || outputFrame.contentWindow.document;
+
+            doc.open();
+            doc.write(code);
+            doc.close();
+        }
+    </script>
+
+</body>
+</html>
